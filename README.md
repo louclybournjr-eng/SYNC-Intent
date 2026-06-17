@@ -1,5 +1,7 @@
 # SYNC Intent
-
+SYNC is a local-first iOS app for creating human authorization receipts.
+Flow: Intent → Evidence → Face ID → W3C-compatible receipt.
+Proof: intent hash, evidence manifest, device authorization metadata, receipt chain, VC export.
 Privacy and support pages for the SYNC Intent iOS app.
 
 ---
