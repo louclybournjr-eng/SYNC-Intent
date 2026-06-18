@@ -1,4 +1,4 @@
-What you meant. Sent.                                          Creates A portable receipt of your intent, evidence, time, and authorization — created on iPhone, shared directly, and verified locally.  No server required.  SYNC creates verifiable human-in-the-loop receipts that travel peer-to-peer across organizations, jurisdictions, and time.
+What you meant. Sent.                                          SYNC Intent-Creates A portable receipt of your intent, evidence, time, and authorization — created on iPhone, shared directly, and verified locally.  No server required.  SYNC creates verifiable human-in-the-loop receipts that travel peer-to-peer across organizations, jurisdictions, and time.
 
 ---
 
