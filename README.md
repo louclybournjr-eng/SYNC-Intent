@@ -5,3 +5,33 @@ SYNC Intent creates a portable receipt of your intent, evidence, time, and autho
 Receipts can be checked at OpenVerifier.org, an open, local-first verifier for digitally signed receipt exports. No account. No upload. No backend required.
 
 SYNC creates verifiable human-in-the-loop receipts that travel peer-to-peer across organizations, jurisdictions, and time.
+
+
+## Privacy Policy
+
+**Effective Date:** June 16, 2026
+
+SYNC Intent is designed to be local-first. Receipts are stored on your device by default.
+
+SYNC Intent does not require account sign-in for on-device receipt creation.
+
+SYNC Intent does not store your receipt evidence in cloud custody by default.
+
+Evidence attached to receipts is represented in exports by hash-only proof unless you choose to share files separately.
+
+Receipt exports may be verified at **OpenVerifier.org**, a local-first public verification utility. OpenVerifier.org is designed to check supported receipt files in the browser without account sign-in, file uploads, or backend calls.
+
+SYNC Intent uses Apple system services such as StoreKit for subscriptions and iOS security features for device authorization.
+
+For privacy questions, contact:  
+louclybournjr@gmail.com
+
+## Support
+
+For support, bug reports, subscription questions, or feedback, contact:  
+louclybournjr@gmail.com
+
+SYNC Intent is a local-first iOS app for creating sealed receipts for important decisions, evidence, authorization, and AI-assisted actions.
+
+To verify supported receipt exports, visit:  
+**OpenVerifier.org**
