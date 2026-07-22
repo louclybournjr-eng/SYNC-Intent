@@ -1,4 +1,4 @@
-# SECURITY
+# SECURITY.md
 
 ## Overview
 
