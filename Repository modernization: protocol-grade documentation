@@ -1,0 +1,337 @@
+# What you meant. Sent.
+
+# SYNC Intent
+
+**Portable Human Authorization**
+
+App Store • OpenVerifier • Local-First • Independent Verification
+
+---
+
+## Abstract
+
+SYNC is a local-first reference implementation for portable human-authorization receipts.
+
+The project demonstrates how human intent, review evidence, device authorization, time, policy context, and cryptographic integrity can be preserved inside a portable evidence artifact that remains independently verifiable outside the originating application.
+
+Unlike traditional workflow systems that retain approval records inside operator-controlled databases, SYNC produces portable receipts that travel with the decision itself.
+
+Receipts are created entirely on-device, exported directly by the owner, and verified independently through an open verification implementation.
+
+No account.
+
+No cloud custody.
+
+No vendor-controlled verification service.
+
+---
+
+# Design Goals
+
+SYNC is designed around six engineering goals.
+
+### G1 — Portable Human Authorization
+
+Authorization evidence should survive application boundaries.
+
+Receipts are designed to remain useful independently of the software that originally created them.
+
+---
+
+### G2 — Local-First Custody
+
+Receipt generation should not require cloud infrastructure.
+
+Human authorization occurs entirely on the user's device.
+
+Evidence remains under user control unless intentionally shared.
+
+---
+
+### G3 — Independent Verification
+
+Receipt verification should not require trust in the issuing application.
+
+Any relying party should be able to independently evaluate cryptographic integrity using open verification software.
+
+---
+
+### G4 — Cryptographic Integrity
+
+Visible receipt contents must remain bound to the exact signed canonical payload.
+
+Verification fails whenever signed receipt contents have been altered.
+
+---
+
+### G5 — Interoperability
+
+Human authorization evidence should compose with external authorization and execution systems without modifying either system's trust model.
+
+SYNC intentionally separates presentation evidence from execution authority, allowing independently verified receipt systems to bind to the same underlying action through cryptographic digest relationships while preserving independent trust roots.
+
+---
+
+### G6 — Human Readability
+
+Receipts should remain understandable by both software and people.
+
+Cryptographic evidence should support legal, operational, and compliance review without requiring protocol expertise.
+
+---
+
+# Trust Model
+
+SYNC intentionally separates independent trust questions.
+
+• What was reviewed?
+
+• What evidence was presented?
+
+• What authorization occurred?
+
+• Can those claims be independently verified?
+
+Receipt generation and receipt verification are intentionally separated.
+
+Applications create receipts.
+
+OpenVerifier verifies receipts.
+
+Neither component requires centralized cloud custody.
+
+---
+
+# Architecture
+
+SYNC consists of four major components.
+
+## SYNC iOS
+
+The production application.
+
+Creates portable human-authorization receipts using Apple's platform security technologies.
+
+Responsibilities include:
+
+• Intent capture
+
+• Evidence attachment
+
+• Device authorization
+
+• Receipt generation
+
+• Export
+
+---
+
+## Receipt Format
+
+Portable receipt object containing:
+
+• Human intent
+
+• Evidence manifest
+
+• Authorization metadata
+
+• Time
+
+• Policy context
+
+• Chain metadata
+
+• Cryptographic integrity
+
+Receipt exports are designed for long-term portability and independent verification.
+
+---
+
+## OpenVerifier
+
+Independent verification implementation.
+
+OpenVerifier reconstructs canonical receipt material directly from exported receipts.
+
+Verification intentionally separates independent guarantees rather than collapsing them into a single result.
+
+Verification includes:
+
+• Content integrity
+
+• Signature verification
+
+• Issuer recognition
+
+• Evidence manifest integrity
+
+• Receipt structure validation
+
+• Chain metadata evaluation
+
+---
+
+## Repository
+
+This repository contains:
+
+• Production iOS implementation
+
+• Receipt schemas
+
+• Export formats
+
+• Open verification implementation
+
+• Technical documentation
+
+• Verification fixtures
+
+• App Store support resources
+
+---
+
+# Verification Model
+
+Verification reconstructs the canonical signed payload directly from exported receipt data.
+
+Verification performs independent evaluation of:
+
+• Canonical payload reconstruction
+
+• SHA-256 digest recomputation
+
+• Digital signature validation
+
+• Issuer trust evaluation
+
+• Evidence manifest validation
+
+• Receipt integrity
+
+Results intentionally distinguish:
+
+• Content integrity
+
+• Signer recognition
+
+• Device authorization claims
+
+• Authorization acceptance
+
+rather than collapsing multiple guarantees into one verification result.
+
+---
+
+# Local-First Security Model
+
+SYNC minimizes trust assumptions.
+
+Receipt creation requires no backend.
+
+Receipt storage defaults to the user's device.
+
+Evidence remains under user control.
+
+Verification occurs independently of the originating application.
+
+The project avoids cloud custody wherever possible.
+
+---
+
+# Interoperability
+
+SYNC is intentionally designed as a composable authorization evidence system.
+
+The repository separates:
+
+• human review evidence
+
+• presentation evidence
+
+• device authorization
+
+from organizational policy, execution, and enforcement systems.
+
+Independent receipt systems may bind to the same underlying action through cryptographic digest relationships while remaining independently verifiable under separate trust roots.
+
+The repository therefore supports interoperability without requiring participating systems to merge trust models or surrender independent verification.
+
+---
+
+# Export Formats
+
+SYNC currently supports multiple portable export formats suitable for long-term verification and interoperability.
+
+Exports preserve cryptographic integrity while remaining portable across organizations, software vendors, and jurisdictions.
+
+---
+
+# OpenVerifier
+
+OpenVerifier is the companion open verification implementation.
+
+Verification occurs locally.
+
+No account required.
+
+No upload required.
+
+No backend required.
+
+Verification remains independent of the issuing application.
+
+---
+
+# Privacy
+
+SYNC is local-first by design.
+
+• No account required
+
+• Receipts remain on device by default
+
+• No cloud evidence custody
+
+• User-controlled exports
+
+Evidence files remain under user ownership unless intentionally shared.
+
+---
+
+# App Store
+
+SYNC Intent is available on the Apple App Store.
+
+The application creates sealed portable human-authorization receipts using Apple's built-in platform security technologies.
+
+---
+
+# Support
+
+Technical support
+
+Enterprise inquiries
+
+Security disclosures
+
+General questions
+
+**louclybournjr@gmail.com**
+
+---
+
+# Philosophy
+
+Technology increasingly determines what happens.
+
+SYNC preserves evidence of what a person decided.
+
+Portable.
+
+Independently verifiable.
+
+Local-first.
+
+**What you meant. Sent.**
