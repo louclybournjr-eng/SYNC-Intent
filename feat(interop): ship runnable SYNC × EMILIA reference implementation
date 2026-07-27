@@ -1,0 +1,44 @@
+Adds the first runnable SYNC × EMILIA interoperability example, connecting hardware-backed human presentation evidence to EMILIA’s exact-action admission and consequence controls.
+
+What changed
+
+* Add a real production SYNC human-authorization receipt.
+* Reproduce the SYNC signing profile independently without trusting OpenVerifier.
+* Reconstruct the allowlisted signing payload using the pinned Swift JSONEncoder canonicalization profile.
+* Resolve the transient signing timestamp through a bounded, unique-candidate digest search.
+* Verify the disclosed SHA-256 digest, DER-encoded ES256 signature, and P-256 key binding.
+* Add permanent positive, mutation, forged-key, and incomplete-chain vectors.
+* Add a runnable Node.js fixture and focused regression tests.
+* Run the SYNC interoperability suite continuously in CI.
+* Document the adapter boundary between SYNC presentation evidence and EMILIA action/effect admission.
+
+Conformance results
+
+* Production SYNC profile: PASS
+* Visible-content mutation: REFUSE
+* Changed public key: REFUSE
+* Missing neighboring receipt or trusted checkpoint: INDETERMINATE
+* Consequential-effect admission with incomplete chain context: REFUSE
+
+Architecture
+
+SYNC proves the origin of a human authorization ceremony:
+
+intent → evidence → hardware-backed authorization → portable receipt
+
+EMILIA independently determines whether that evidence is sufficient to admit an exact machine action:
+
+authority → policy → exact action → one-time execution → verifiable consequence
+
+The systems remain independently implemented and independently verifiable. An adapter composes them without absorbing either one.
+
+Why it matters
+
+This turns human authorization from an application-level assertion into reproducible protocol evidence.
+
+A third-party implementation can now take a production SYNC receipt, reconstruct the exact bytes signed by the Secure Enclave, verify the artifact independently, refuse tampering and key substitution, preserve uncertainty where evidence is incomplete, and pass the result into EMILIA’s formally specified action-admission boundary.
+
+SYNC proves what the human authorized.
+EMILIA governs what the machine may do with it.
+
+Together, they form a runnable human-to-consequence authorization stack for autonomous systems.
