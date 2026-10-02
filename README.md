@@ -1,21 +1,34 @@
-SYNC Intent
+docs: define SYNC human-authority boundary
+# SYNC Intent
 
-Portable human authority for consequential actions.
+**Portable, independently verifiable human authority for exact consequential actions.**
 
-SYNC Intent creates independently verifiable authorization receipts that preserve what a person intended to authorize, the exact action they authorized, the evidence and decision state they relied on, when the decision was made, and the device-based authorization ceremony that sealed it.
+SYNC Intent creates sealed authorization receipts that preserve:
 
-Receipts are sealed locally, portable across systems, and independently verifiable without an account, upload, or SYNC backend.
+- what a person intended to authorize
+- the exact action being authorized
+- the evidence the person reviewed
+- the decision state relied upon
+- when the decision was made
+- the device-based authorization ceremony that sealed it
 
-SYNC establishes the human-authority side of a consequential action. It does not claim that an action was admitted, executed, or completed. Those are separate machine-side and outcome assertions that can be independently attributed and verified when present.
+Receipts are sealed locally, portable across systems, and independently verifiable.
 
-Intent → Evidence → Decision State → Exact Action → Human Authorization → Portable Proof
+**No account. No upload. No backend custody required.**
 
-And then immediately underneath:
+## Human Authority
 
-Independent verification
+SYNC establishes the human-authority side of a consequential action.
 
-SYNC receipts can be checked independently through OpenVerifier.org, a free, local-first verification surface.
-
-Verification preserves attribution rather than collapsing the chain into a single “verified” result. Human authorization, machine-side records, external/provider evidence, and outcome evidence remain separately attributable to their respective sources.
-
-No account. No upload. No backend custody.
+```text
+Intent
+  ↓
+Evidence
+  ↓
+Decision State
+  ↓
+Exact Action
+  ↓
+Human Authorization
+  ↓
+Portable Proof
