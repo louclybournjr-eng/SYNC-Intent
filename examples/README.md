@@ -1,190 +1,91 @@
 # Examples
 
-This directory contains example SYNC receipt exports and supporting documentation.
+This directory contains public examples and documentation for the SYNC receipt model.
 
-The examples are intended to demonstrate the portable receipt format, verification workflow, trust boundaries, and interoperability model implemented by the SYNC reference implementation.
+Examples are intended to demonstrate the structure, verification boundaries, interoperability model, and refusal semantics of portable human-authorization evidence.
 
-These examples are provided for documentation, testing, and educational purposes.
+Only files actually present in this directory should be treated as published examples.
 
----
+## What the Examples Demonstrate
 
-# Directory
+SYNC examples may demonstrate:
 
+- human intent
+- evidence manifests
+- decision-state references
+- exact-action binding
+- device authorization metadata
+- canonical receipt payloads
+- cryptographic verification
+- tamper refusal
+- signer or key substitution refusal
+- chain-context handling
+- interoperability with independent machine-side systems
+- attribution-preserving verification
+- indeterminate results when evidence is incomplete
+
+## Verification Model
+
+A verifier evaluates the evidence actually present in an artifact.
+
+Verification should distinguish between:
+
+- content integrity
+- signer recognition
+- human authorization
+- evidence integrity
+- decision-state binding
+- exact-action identity
+- machine-side evidence, when present
+- provider or external evidence, when present
+- outcome evidence, when present
+- residual indeterminacy
+
+A valid human-authorization receipt does not by itself prove that an external action was admitted, executed, settled, or completed.
+
+## Interoperability
+
+SYNC receipts are designed to compose with external authorization and consequence-control systems while preserving independent trust boundaries.
+
+```text
+Human Intent
+      ↓
+Evidence
+      ↓
+Decision State
+      ↓
+Exact Action
+      ↓
+Human Authorization
+      ↓
+Portable Receipt
+      ↓
+Independent Machine System
+      ↓
+Consequence / Outcome Evidence
+      ↓
+Independent Verification
 ```
-examples/
 
-├── README.md
-├── basic-receipt.json
-├── ai-authorization-receipt.json
-├── evidence-manifest.json
-├── canonical-payload.json
-├── verification.md
-├── verification-output.md
-├── receipt-anatomy.md
-├── tampered-receipt.json
-├── interoperability.md
-├── export-vc-jwt.md
-└── export-vc-json.md
-```
+Participating systems remain separately attributable.
 
----
+One system should not claim another system’s role merely because their artifacts compose successfully.
 
-# Example Contents
+## Local-First Verification
 
-## basic-receipt.json
+Supported SYNC artifacts may be checked through OpenVerifier.org.
 
-Demonstrates the minimum portable receipt structure.
+Verification is designed to occur without:
 
-Includes:
+- a user account
+- evidence upload
+- cloud custody
+- privileged access to the originating system
 
-- Receipt identifier
-- Schema version
-- Intent
-- Authorization
-- Timestamp
-- Cryptographic proof
+## Repository Scope
 
----
+This directory supports technical review, interoperability testing, research, and documentation of the SYNC human-authorization model.
 
-## ai-authorization-receipt.json
-
-Example receipt for an AI-assisted action.
-
-Illustrates how human authorization can be preserved before an AI-assisted workflow proceeds.
-
----
-
-## evidence-manifest.json
-
-Example evidence manifest describing attached evidence without requiring cloud custody.
-
-Shows:
-
-- Evidence metadata
-- SHA-256 hashes
-- File information
-- Integrity references
-
----
-
-## canonical-payload.json
-
-Illustrates the canonical receipt payload used during signature generation.
-
-Useful for understanding receipt integrity and verification behavior.
-
----
-
-## receipt-anatomy.md
-
-Visual explanation of the receipt format.
-
-Describes:
-
-- Intent
-- Evidence
-- Authorization
-- Time
-- Proof
-- Receipt metadata
-
----
-
-## verification.md
-
-Walkthrough of the verification process.
-
-Verification performs the following operations:
-
-1. Parse receipt
-2. Reconstruct canonical payload
-3. Recompute SHA-256 digest
-4. Validate digital signature
-5. Validate receipt metadata
-6. Report verification results
-
-Verification is performed locally.
-
-No upload required.
-
-No backend required.
-
----
-
-## verification-output.md
-
-Example successful verification report.
-
-Illustrates independent verification results including:
-
-- Content integrity
-- Signature validation
-- Receipt integrity
-- Evidence manifest validation
-- Receipt structure validation
-- Chain metadata evaluation
-
----
-
-## tampered-receipt.json
-
-Example of a modified receipt.
-
-Demonstrates that changing protected receipt content invalidates verification.
-
-Provided for testing and educational purposes.
-
----
-
-## export-vc-jwt.md
-
-Example Verifiable Credential JWT export.
-
-Documents portable export behavior and expected verification workflow.
-
----
-
-## export-vc-json.md
-
-Example Verifiable Credential JSON export.
-
-Illustrates portable receipt serialization.
-
----
-
-## interoperability.md
-
-Demonstrates how SYNC receipts may compose with external authorization systems while maintaining independent trust boundaries.
-
-Human review evidence and execution authority remain intentionally separated.
-
-Independent receipt systems may bind to the same underlying action through cryptographic digest relationships while remaining independently verifiable.
-
----
-
-# Design Principles
-
-The examples are designed to demonstrate the engineering goals of SYNC.
-
-- Portable human authorization
-- Local-first custody
-- Independent verification
-- Cryptographic integrity
-- Human-readable evidence
-- Interoperability
-
-Each example is intentionally vendor-neutral and suitable for technical evaluation, implementation guidance, and interoperability testing.
-
----
-
-# Repository Scope
-
-These examples document the behavior of the SYNC reference implementation.
-
-They are intended to assist developers, security reviewers, auditors, researchers, and organizations evaluating portable human-authorization receipts and independent verification workflows.
-
-The production iOS application remains the primary implementation of the SYNC architecture.
-
----
+The production SYNC Intent iOS application is distributed separately.
 
 **What you meant. Sent.**
