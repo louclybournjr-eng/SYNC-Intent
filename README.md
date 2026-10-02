@@ -1,101 +1,21 @@
-What SYNC Does
+SYNC Intent
 
-SYNC provides a portable human-authorization layer for important decisions and AI-assisted actions.
+Portable human authority for consequential actions.
 
-Each receipt cryptographically binds:
+SYNC Intent creates independently verifiable authorization receipts that preserve what a person intended to authorize, the exact action they authorized, the evidence and decision state they relied on, when the decision was made, and the device-based authorization ceremony that sealed it.
 
-* Human intent
-* Evidence (hash or attached files)
-* Device authorization (Face ID / Touch ID)
-* Time
-* Policy context
-* Integrity proof
+Receipts are sealed locally, portable across systems, and independently verifiable without an account, upload, or SYNC backend.
 
-Receipts travel with the decision instead of remaining inside a vendor’s database.
+SYNC establishes the human-authority side of a consequential action. It does not claim that an action was admitted, executed, or completed. Those are separate machine-side and outcome assertions that can be independently attributed and verified when present.
 
-Verification happens locally through OpenVerifier.org.
+Intent → Evidence → Decision State → Exact Action → Human Authorization → Portable Proof
 
-⸻
+And then immediately underneath:
 
-Why It Exists
+Independent verification
 
-Modern systems can prove that software executed.
+SYNC receipts can be checked independently through OpenVerifier.org, a free, local-first verification surface.
 
-They rarely prove what a human actually reviewed before authorizing it.
+Verification preserves attribution rather than collapsing the chain into a single “verified” result. Human authorization, machine-side records, external/provider evidence, and outcome evidence remain separately attributable to their respective sources.
 
-SYNC creates portable evidence of the human review surface.
-
-It doesn’t replace authorization systems.
-
-It preserves the evidence that a human reviewed and approved the information presented to them.
-
-⸻
-
-Local-First
-
-Everything is designed around user ownership.
-
-* Created on iPhone
-* Stored locally
-* Shared directly
-* Independently verifiable
-* No cloud custody required
-
-Evidence stays under the user’s control.
-
-Exports contain cryptographic proofs that anyone can verify locally.
-
-⸻
-
-Verification
-
-Supported receipt exports can be verified at:
-
-OpenVerifier.org
-
-Verification is performed locally in the browser.
-
-No account.
-
-No upload.
-
-No backend.
-
-⸻
-
-Interoperability
-
-SYNC receipts are designed to compose with external authorization systems.
-
-A relying party can independently verify a SYNC receipt alongside another authorization receipt while cryptographically binding both to the same action through digest matching.
-
-SYNC remains responsible for the preserved human review surface and evidence.
-
-Other systems remain responsible for authorization and execution.
-
-⸻
-
-App Store
-
-Download SYNC Intent on the App Store.
-
-The application creates sealed human-authorization receipts directly on iPhone using Apple’s secure authentication technologies.
-
-⸻
-
-Privacy
-
-SYNC is local-first.
-
-* No account required
-* No cloud evidence storage
-* Receipts remain on your device by default
-* Evidence is represented by cryptographic hashes unless explicitly shared
-
-⸻
-
-Support
-
-Questions, bug reports, or feedback:
-
-louclybournjr@gmail.com
+No account. No upload. No backend custody.
