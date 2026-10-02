@@ -1,80 +1,119 @@
-# SECURITY.md
+# SYNC Security Model
 
 ## Overview
 
-SYNC is a local-first reference implementation for portable human authorization.
+SYNC is a local-first reference architecture for portable human authorization.
 
-The security model is intentionally simple:
+The security model separates human authorization from machine admission, execution, provider outcome, and later relying-party decisions.
 
-- Humans author intent.
-- Humans review evidence.
-- Device-bound authentication authorizes the decision.
-- Receipts are cryptographically signed.
-- Verification is performed independently.
-
-Receipt creation and verification do not require cloud custody.
-
----
+SYNC is designed so that verification does not require cloud custody or trust in the originating application.
 
 ## Security Goals
 
 SYNC is designed to provide:
 
-- Content integrity
-- Receipt authenticity
-- Tamper detection
-- Device-bound authorization
-- Independent verification
-- Portable evidence
+- content integrity
+- tamper detection
+- receipt authenticity
+- device-mediated authorization evidence
+- evidence-manifest integrity
+- decision-state binding
+- exact-action binding
+- independent verification
+- portable evidence
+- attribution preservation
 
-SYNC preserves authorization evidence. It does not perform execution-time enforcement.
+SYNC preserves human-authorization evidence.
 
----
+It does not perform execution-time enforcement.
 
-## Local-First Architecture
+## Human-Authorization Model
 
-Receipts are created entirely on the user's device.
+A protected receipt may bind:
 
-Evidence remains under user control by default.
+- human intent
+- evidence metadata
+- decision-state references
+- exact-action identity
+- authorization event
+- receipt identity
+- timestamp
+- chain metadata
+- policy context
+- cryptographic proof
 
-Receipt exports can be shared directly between parties without requiring a backend service.
+Verification reconstructs the protected receipt material before cryptographic validation.
+
+Modification of protected content must invalidate verification.
+
+## Decision State and Exact Action
+
+Exact-action identity answers:
+
+**What exact action was authorized?**
+
+Decision-state evidence answers:
+
+**Under what material state was that authorization made?**
+
+These questions are intentionally separate.
+
+The same action identity may exist under a changed decision state.
+
+A downstream consequence-control system may independently determine whether required state remains admissible at execution time.
+
+## Independent Verification
 
 Supported receipts can be verified locally using OpenVerifier.
 
----
+Verification does not require:
 
-## Cryptographic Model
+- a SYNC account
+- evidence upload
+- access to a SYNC backend
+- access to the originating iOS application
+- privileged access to a machine-side execution system
 
-SYNC receipts bind together:
+## Attribution
 
-- Human intent
-- Evidence metadata
-- Authorization event
-- Receipt identity
-- Timestamp
-- Receipt chain metadata
+Verification should preserve the origin of each assertion.
 
-Verification reconstructs the canonical signed payload before signature validation.
+A human-authorization claim should remain attributable to the human-authority artifact.
 
-Any modification to protected receipt content invalidates verification.
+A machine-admission claim should remain attributable to the machine-side system that produced it.
 
----
+Provider and outcome evidence should remain attributable to their respective evidence sources.
+
+Verification of one claim must not silently establish another.
 
 ## Trust Boundaries
 
-SYNC does not prove:
+SYNC does not by itself prove:
 
-- Organizational authority
-- Identity proofing
-- Regulatory compliance
-- Legal validity
-- Execution of an external action
+- organizational authority
+- identity proofing
+- regulatory compliance
+- legal validity
+- machine admission
+- external execution
+- settlement
+- provider outcome
 
-SYNC proves that a portable receipt was created, authorized, and cryptographically preserved according to the receipt specification.
+Higher-level trust and acceptance decisions remain the responsibility of the relying party.
 
-Higher-level trust decisions remain the responsibility of the relying party.
+## Failure Semantics
 
----
+Where required evidence cannot be established, verification should refuse unsupported conclusions or report indeterminacy rather than manufacture certainty.
+
+A single generic “verified” result should not be used to imply claims beyond the available evidence.
+
+## Local-First Architecture
+
+Receipts are created on the user’s device.
+
+Evidence remains under user control by default.
+
+Receipt exports may be shared directly between parties without requiring backend custody.
 
 ## Responsible Disclosure
 
